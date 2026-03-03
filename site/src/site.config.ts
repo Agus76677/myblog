@@ -2,7 +2,7 @@ import type { CardListData, Config, IntegrationUserConfig, ThemeUserConfig } fro
 
 export const theme: ThemeUserConfig = {
   title: 'My Research Blog',
-  author: 'Your Name',
+  author: 'Agus76677',
   description: 'A personal site for paper reading notes, daily logs, and projects.',
   favicon: '/favicon/favicon.ico',
   locale: {
@@ -34,11 +34,11 @@ export const theme: ThemeUserConfig = {
   },
   footer: {
     registration: {
-      url: 'https://example.com',
-      text: '备案信息 / Registration'
+      url: 'https://agus76677.github.io/',
+      text: 'Published via GitHub Pages'
     },
     credits: true,
-    social: { github: 'https://github.com/yourname/your-blog' }
+    social: { github: 'https://github.com/Agus76677/Agus76677.github.io' }
   },
   content: {
     externalLinksContent: ' ->',
@@ -54,8 +54,8 @@ export const integ: IntegrationUserConfig = {
     applyTip: [
       { name: 'Name', val: theme.title },
       { name: 'Desc', val: theme.description || 'Null' },
-      { name: 'Link', val: 'https://example.com' },
-      { name: 'Avatar', val: 'https://example.com/avatar/avatar.webp' }
+      { name: 'Link', val: 'https://agus76677.github.io/' },
+      { name: 'Avatar', val: 'https://agus76677.github.io/avatar/avatar.webp' }
     ]
   },
   pagefind: true,
