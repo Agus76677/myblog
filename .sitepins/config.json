@@ -1,10 +1,8 @@
-[
-  {
-    "name": "blog-user-content",
-    "code_folder": "site/src",
-    "content_folder": "site/src/content/blog/user",
-    "media_folder": "site/public/images",
-    "media_library": "native",
-    "schema": []
-  }
-]
+{
+  "content": "site/src/content/blog/user",
+  "media": "site/public/images",
+  "public": "static",
+  "configs": [],
+  "custom-commit": false,
+  "arrangement": []
+}
