@@ -12,9 +12,9 @@ const MONTH_LABELS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'S
 
 const LEVELS = [
   { level: 1 as const, emoji: '🙄', label: '状态很差', color: '#f4f8fb', border: '#d8e4ef', text: '#5c6c7b' },
-  { level: 2 as const, emoji: '😮‍💨', label: '勉强推进', color: '#d5e6f3', border: '#c0d6e6', text: '#45627d' },
-  { level: 3 as const, emoji: '🙂', label: '正常工作', color: '#7ea1c7', border: '#7295bb', text: '#f8fbff' },
-  { level: 4 as const, emoji: '😄', label: '进展不错', color: '#1f5f94', border: '#174e7b', text: '#f8fbff' },
+  { level: 2 as const, emoji: '', label: '勉强推进', color: '#d5e6f3', border: '#c0d6e6', text: '#45627d' },
+  { level: 3 as const, emoji: '', label: '正常工作', color: '#7ea1c7', border: '#7295bb', text: '#f8fbff' },
+  { level: 4 as const, emoji: '', label: '进展不错', color: '#1f5f94', border: '#174e7b', text: '#f8fbff' },
   { level: 5 as const, emoji: '🥳', label: '大丰收', color: '#0a3156', border: '#092742', text: '#f8fbff' }
 ] as const
 
@@ -108,17 +108,11 @@ const ResearchStatusBoard = ({ year = new Date().getFullYear() }: { year?: numbe
 
   return (
     <section
-      className='overflow-hidden rounded-[1.5rem] border px-3 py-3 shadow-sm sm:px-4 sm:py-4'
+      className='mx-auto w-fit overflow-hidden rounded-[1.5rem] border px-3 py-3 shadow-sm sm:px-4 sm:py-4'
       style={{ backgroundColor: BOARD_BG, borderColor: BOARD_BORDER }}
     >
       <div className='mb-3 flex flex-col gap-3 xl:flex-row xl:items-start xl:justify-between'>
         <div className='space-y-1'>
-          <div
-            className='inline-flex rounded-full border px-2.5 py-1 text-xs font-medium'
-            style={{ borderColor: '#5b6b7c', color: '#e6edf5' }}
-          >
-            Research Status
-          </div>
           <h2 className='text-lg font-semibold text-white sm:text-xl'>{year} 科研状态日历</h2>
           <p className='text-xs text-slate-300 sm:text-sm'>点击某一天，再选择 1 到 5 档状态。数据仅保存在当前浏览器。</p>
         </div>
@@ -157,7 +151,7 @@ const ResearchStatusBoard = ({ year = new Date().getFullYear() }: { year?: numbe
                     boxShadow: active ? '0 0 0 2px rgba(255,255,255,0.16)' : 'none'
                   }}
                 >
-                  <span className='text-sm'>{item.emoji}</span>
+                  {item.emoji ? <span className='text-sm'>{item.emoji}</span> : null}
                   <span className='text-[11px] font-semibold'>{item.level}</span>
                 </button>
               )
@@ -167,7 +161,7 @@ const ResearchStatusBoard = ({ year = new Date().getFullYear() }: { year?: numbe
       </div>
 
       <div className='overflow-x-auto pb-1'>
-        <div className='inline-flex gap-2 sm:gap-3'>
+        <div className='inline-flex gap-0'>
           <div className='grid grid-rows-7 gap-1 pr-1 pt-7 text-[10px] font-semibold text-slate-200 sm:text-[11px]'>
             {WEEKDAY_LABELS.map((label, index) => (
               <div key={`${label}-${index}`} className='flex h-5 items-center justify-end pr-1 sm:h-6'>
@@ -219,7 +213,7 @@ const ResearchStatusBoard = ({ year = new Date().getFullYear() }: { year?: numbe
                             opacity: isFuture ? 0.45 : 1
                           }}
                         >
-                          {level?.emoji ?? ''}
+                          {rating === 1 || rating === 5 ? level?.emoji ?? '' : ''}
                         </button>
                       )
                     })}
