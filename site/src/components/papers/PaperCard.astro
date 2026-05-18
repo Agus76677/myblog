@@ -62,7 +62,11 @@ const readingMeta = readingMode ? readingModeMap[readingMode] : null
 
   <footer class='recommend'>
     <span class='text'>推荐指数：</span>
-    <span class='stars'>{'☆'.repeat(clampedScore)}{'☆'.repeat(5 - clampedScore)}</span>
+    <span class='stars'
+      ><span class='filled'>{'★'.repeat(clampedScore)}</span><span class='empty'
+        >{'☆'.repeat(5 - clampedScore)}</span
+      ></span
+    >
   </footer>
 </article>
 
@@ -185,10 +189,17 @@ const readingMeta = readingMode ? readingModeMap[readingMode] : null
   }
 
   .paper-card .stars {
-    color: #f4b400;
     font-weight: 700;
     letter-spacing: 0.03em;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+  }
+
+  .paper-card .stars .filled {
+    color: #f4b400;
+  }
+
+  .paper-card .stars .empty {
+    color: hsl(var(--muted-foreground) / 0.35);
   }
 
   .paper-card .tldr {
